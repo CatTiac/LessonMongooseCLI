@@ -1,0 +1,25 @@
+{
+  "name": "mongoosecli",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000L\u0000e\u0000s\u0000s\u0000o\u0000n\u0000M\u0000o\u0000n\u0000g\u0000o\u0000o\u0000s\u0000e\u0000C\u0000L\u0000I\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatTiac/LessonMongooseCLI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CatTiac/LessonMongooseCLI/issues"
+  },
+  "homepage": "https://github.com/CatTiac/LessonMongooseCLI#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mongoose": "^6.2.3",
+    "yargs": "^17.3.1"
+  }
+}
