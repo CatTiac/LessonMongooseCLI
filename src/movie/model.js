@@ -13,6 +13,10 @@ const movieSchema = new mongoose.Schema({
         type: String,
         default: "Not specified",
     },
+    date: {
+        type: Number,
+        default: "Not specified",
+    },
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
