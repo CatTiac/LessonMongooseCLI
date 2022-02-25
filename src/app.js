@@ -1,7 +1,8 @@
 require("./db/connection");
 const mongoose = require("mongoose");
 const yargs = require("yargs");
-const { addMovie, list, updateMovie, deleteMovie } = require("./movie/functions");
+const { addMovie, listMovie, updateMovie, deleteMovie, findMovie } = require("./movie/functions");
+const { addTVShow, listTVShow, updateTVShow, deleteTVShow, findTVShow } = require("./TVshows/functions");
 
 const app = async (yargsObj) => {
     try {
@@ -9,7 +10,7 @@ const app = async (yargsObj) => {
             console.log(await addMovie(yargsObj.title, yargsObj.actor, yargsObj.date));
             //add functionality
         } else if (yargsObj.list) {
-            console.log(await list());
+            console.log(await listMovie());
             //list functionality
         } else if (yargsObj.update) {
             console.log(await updateMovie(yargsObj.oldInfo, yargsObj.newInfo, yargsObj.info));
@@ -17,6 +18,20 @@ const app = async (yargsObj) => {
         } else if (yargsObj.delete) {
             console.log(await deleteMovie(yargsObj.title));
             //delete one functionality
+        } else if (yargsObj.findMovie) {
+            console.log(await findMovie(yargsObj.title, yargsObj.actor, yargsObj.date));
+            //search functionality
+
+        } else if (yargsObj.addTV) {
+            console.log(await addTVShow(yargsObj.title, yargsObj.channel, yargsObj.date));
+        } else if (yargsObj.listTV) {
+            console.log(await listTVShow());
+        } else if (yargsObj.updateTV) {
+            console.log(await updateTVShow(yargsObj.oldInfo, yargsObj.newInfo, yargsObj.info));
+        } else if (yargsObj.deleteTV) {
+            console.log(await deleteTVShow(yargsObj.title));
+        } else if (yargsObj.findTV) {
+            console.log(await findTVShow(yargsObj.title, yargsObj.channel, yargsObj.date));
         } else {
             console.log("Incorrect command");
         }

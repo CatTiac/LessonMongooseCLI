@@ -12,7 +12,7 @@ exports.addMovie = async (title, actor, date) => {
     }
 }
 
-exports.list = async () => {
+exports.listMovie = async () => {
     //Below - Find - finds all items in the list
     try {
         return await Movie.find({});
@@ -22,7 +22,7 @@ exports.list = async () => {
 };
 
 exports.updateMovie = async ( oldInfo, newInfo, info ) => {
-    //Below - loop to change key value
+    //Below - loop to change old value to new value
     try {
         if (info == "title") {
             return await Movie.updateOne(
@@ -51,6 +51,16 @@ exports.deleteMovie = async (title) => {
         const filter = { title };
         await Movie.deleteOne( filter );
         return `Deleted ${title}`;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+exports.findMovie = async (title) => {
+    try {
+        const movie = await Movie.find({ title });
+        return movie.map( movie => movie );
+
     } catch (error) {
         console.log(error);
     }
