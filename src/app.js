@@ -6,19 +6,19 @@ const { addTVShow, listTVShow, updateTVShow, deleteTVShow, findTVShow } = requir
 
 const app = async (yargsObj) => {
     try {
-        if (yargsObj.add) {
+        if (yargsObj.addM) {
             console.log(await addMovie(yargsObj.title, yargsObj.actor, yargsObj.date));
             //add functionality
-        } else if (yargsObj.list) {
+        } else if (yargsObj.listM) {
             console.log(await listMovie());
             //list functionality
-        } else if (yargsObj.update) {
+        } else if (yargsObj.updateM) {
             console.log(await updateMovie(yargsObj.oldInfo, yargsObj.newInfo, yargsObj.info));
             //update one functionality
-        } else if (yargsObj.delete) {
+        } else if (yargsObj.deleteM) {
             console.log(await deleteMovie(yargsObj.title));
             //delete one functionality
-        } else if (yargsObj.findMovie) {
+        } else if (yargsObj.findM) {
             console.log(await findMovie(yargsObj.title, yargsObj.actor, yargsObj.date));
             //search functionality
 

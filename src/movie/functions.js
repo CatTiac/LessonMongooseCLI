@@ -23,22 +23,26 @@ exports.listMovie = async () => {
 
 exports.updateMovie = async ( oldInfo, newInfo, info ) => {
     //Below - loop to change old value to new value
+    //E.g node src/app.js --updateM --info="title" --oldInfo="Spiderman" --newInfo="Spoodermoon"
     try {
         if (info == "title") {
-            return await Movie.updateOne(
+            await Movie.updateOne(
                 { title: oldInfo },
                 { title: newInfo }
             );
+            return `Updated movie ${info} - ${oldInfo} to ${newInfo}`;
         } else if (info == "actor") {
-            return await Movie.updateOne(
+            await Movie.updateOne(
                 { actor: oldInfo },
                 { actor: newInfo }
             );
+            return `Updated movie ${info} - ${oldInfo} to ${newInfo}`;
         } else if (info == "date") {
-            return await Movie.updateOne(
+            await Movie.updateOne(
                 { date: oldInfo },
                 { date: newInfo }
             );
+            return `Updated movie ${info} - ${oldInfo} to ${newInfo}`;
         }
     } catch (error) {
         console.log(error);
@@ -57,6 +61,7 @@ exports.deleteMovie = async (title) => {
 };
 
 exports.findMovie = async (title) => {
+    //Finds one item by title, returns result
     try {
         const movie = await Movie.find({ title });
         return movie.map( movie => movie );
